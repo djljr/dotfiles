@@ -1,0 +1,64 @@
+call pathogen#infect()
+call pathogen#helptags()
+
+set nocompatible
+set showmode
+set autoindent
+set cursorline
+set ruler
+set hidden
+set backspace=indent,eol,start
+set history=1000
+set undofile
+set undoreload=10000
+set autoread
+set tags=~/.tags
+set complete=.,w,b,u,t,i
+set number
+
+set backupskip=/tmp/*,/private/tmp/*"
+
+let mapleader = ","
+
+au FocusLost * :wa
+au VimResized * :wincmd =
+au VimEnter * NERDTree
+au VimEnter * wincmd p
+au! BufWritePost .vimrc source %
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set wrap
+set textwidth=80
+
+syntax on
+
+nnoremap / /\v
+vnoremap / /\v
+
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
+set gdefault
+
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/build/*,*/.settings/*,*/bin/*,*/testResults/*
+let g:ctrlp_max_files = 0
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_working_path_mode = 2
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplMapWindowNavVim = 1
+noremap <leader>n :NERDTreeFind<cr>
+noremap <leader>m :NERDTreeToggle<cr>
+
+let java_highlight_all=1
+let java_highlight_functions="style"
+let java_allow_cpp_keywords=1
+
+if has('gui_running')
+  set guioptions-=T  " no toolbar
+endif
