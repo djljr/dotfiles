@@ -30,7 +30,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-set wrap
+set nowrap
 set textwidth=80
 
 syntax on
@@ -45,7 +45,7 @@ set showmatch
 set hlsearch
 set gdefault
 
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/build/*,*/.settings/*,*/bin/*,*/testResults/*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/build/*,*/.settings/*,*/bin/*,*/testResults/*,*/webapp/WEB-INF/classes*
 let g:ctrlp_max_files = 0
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 let g:ctrlp_map = '<c-p>'
@@ -55,6 +55,15 @@ let g:miniBufExplMapWindowNavVim = 1
 noremap <leader>n :NERDTreeFind<cr>
 noremap <leader>m :NERDTreeToggle<cr>
 
+let g:ctrlp_user_command = {
+    \ 'types': {
+      \ 1: ['.git/', 'cd %s && git ls-files'],
+      \ 2: ['.hg/', 'hg --cwd %s locate -I .'],
+      \ },
+    \ 'fallback': 'find %s -type f'
+    \ }
+let g:ctrlp_lazy_update = 1
+    
 let java_highlight_all=1
 let java_highlight_functions="style"
 let java_allow_cpp_keywords=1
