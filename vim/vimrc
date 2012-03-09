@@ -12,6 +12,7 @@ set backspace=indent,eol,start
 set history=1000
 set undofile
 set undoreload=10000
+set undodir=~/.undo
 set autoread
 set tags=~/.tags
 set complete=.,w,b,u,t,i
@@ -24,10 +25,10 @@ set noswapfile     "no swap files
 
 let mapleader = ","
 syntax on
+filetype plugin indent on
 
 au FocusLost * :wa
 au VimResized * :wincmd =
-au VimEnter * wincmd p
 
 au! BufWritePost .vimrc source %
 
@@ -79,7 +80,6 @@ let g:ctrlp_lazy_update = 1
 "nerdtree
 noremap <leader>n :NERDTreeFind<cr>
 noremap <leader>m :NERDTreeToggle<cr>
-au VimEnter * NERDTree
 
 "java    
 let java_highlight_all=1
