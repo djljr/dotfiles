@@ -25,6 +25,8 @@ set noswapfile     "no swap files
 
 let mapleader = ","
 syntax on
+set background=dark
+colorscheme solarized
 filetype plugin indent on
 
 au FocusLost * :wa
