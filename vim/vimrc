@@ -29,10 +29,13 @@ set background=dark
 colorscheme solarized
 filetype plugin indent on
 
-au FocusLost * :wa
+"au FocusLost * :wa
 au VimResized * :wincmd =
 
-au! BufWritePost .vimrc source %
+au! BufWritePost vimrc source %
+
+"nnoremap <C-J> mao<Esc>`a
+"nnoremap <C-K> maO<Esc>`a
 
 "rainbow parens
 au VimEnter * RainbowParenthesesToggle
@@ -59,6 +62,7 @@ set incsearch
 set showmatch
 set hlsearch
 set gdefault
+nnoremap <leader><space> :noh<cr>
 
 "minibufexpl
 let g:miniBufExplUseSingleClick = 1
