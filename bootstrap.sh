@@ -6,3 +6,5 @@ ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
 git submodule init
 git submodule update
+
+~/dotfiles/terminal/gnome-terminal-colors-solarized/set_dark.sh
